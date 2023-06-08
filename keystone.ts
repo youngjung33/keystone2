@@ -20,12 +20,12 @@ export default withAuth( config({
         path: '/api/graphql',
     },
     server:{
-      // host:'ec2-43-201-95-217.ap-northeast-2.compute.amazonaws.com',
-    //   port:3000,
-      port:parseInt(process.env.PORT as string, 10) || 3000,
+    //   host:'ec2-13-125-129-86.ap-northeast-2.compute.amazonaws.com',
+      port:3000,
+    //   port:parseInt(process.env.PORT as string, 10) || 3000,
       healthCheck: {
         path:'/health',
-        data: {status: '통신상태양호',timestamp:Date.now()},
+        data: ()=>({status: '통신상태양호',timestamp:Date.now()}),
       },
       cors: {origin:['http://localhost:5500/websocket'], credentials:true}
     },
