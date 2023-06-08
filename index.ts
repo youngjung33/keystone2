@@ -14,6 +14,7 @@ const keystone = config({
   db: {
     provider: 'sqlite',
     url: databaseUrl,
+    port:process.env.PORT || 8080,
   },
   lists: {
     User: list({
@@ -29,7 +30,7 @@ const keystone = config({
   },
 });
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8080;
 const app = express();
 app.use(cors());
 app.use(express.json());
