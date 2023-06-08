@@ -14,7 +14,7 @@ const keystone = config({
   db: {
     provider: 'sqlite',
     url: databaseUrl,
-    port:process.env.PORT || 8080,
+    port:process.env.PORT || 3000,
   },
   lists: {
     User: list({
@@ -30,13 +30,13 @@ const keystone = config({
   },
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 const httpServer = app.listen(port, () => {
-  console.log('Express 앱이 4000번 포트에서 실행 중입니다.');
+  console.log('Express 앱이 3000번 포트에서 실행 중입니다.');
 });
 
 const wss = new WebSocketServer({
